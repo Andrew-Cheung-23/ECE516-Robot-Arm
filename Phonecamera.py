@@ -33,8 +33,8 @@ def find_red_pixels(image):
     # Find contours in the mask
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if len(contours) > 0:
-        return frame,True
-    return frame,False
+        return image,True
+    return image,False
 
 
 
@@ -57,7 +57,7 @@ serialInst.baudrate =  9600
 serialInst.port = portVar
 serialInst.open()
 
-numleds = 10
+numleds = 20
 
 pattern = ""
 output_dir = 'captured_frames'
@@ -114,7 +114,7 @@ while True:
             else:
                 pattern = pattern + str(0)
         serialInst.write(pattern.encode('utf-8'))
-        count = -1
+        count = 0
         pattern = ""
         time.sleep(2)
 

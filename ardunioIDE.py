@@ -22,8 +22,8 @@ def find_red_pixels(image):
     # Find contours in the mask
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if len(contours) > 0:
-        return frame,True
-    return frame,False
+        return image,True
+    return image,False
 
 cap = cv2.VideoCapture(0)
 cap2 = cv2.VideoCapture(1)
